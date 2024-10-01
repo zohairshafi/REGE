@@ -1512,7 +1512,6 @@ def get_conformal_radii(graph_dict, alpha = 0.05):
     student_upper = student_out[2].detach().cpu().numpy()
     
     prediction_sets = [student_lower - qhat, student_upper + qhat]
-    prediction_sets = [student_lower, student_upper]
     
     conformal_radii = np.mean(prediction_sets[1] - prediction_sets[0], axis = 1)
     conformal_radii = (conformal_radii - np.min(conformal_radii)) / np.ptp(conformal_radii)
